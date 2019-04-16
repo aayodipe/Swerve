@@ -6,8 +6,8 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-         Swerve main page. The Front end in not in clients folder
-                 </header>
+         This is Swerve main page. The Front end files are now in clients folder. 
+         </header>
       </div>
     );
   }
