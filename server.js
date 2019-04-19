@@ -1,30 +1,26 @@
 const express = require("express");
-const logger = require("morgan");
-const bodyParser = require("body-parser");
+
 const mongoose = require("mongoose");
-const path = require("path");
-
-const db = require("./models/swerve");
-
-const PORT = process.env.PORT || 3000;
-
-
+const routes = require("./routes");
 const app = express();
+const PORT = process.env.PORT || 3001;
 
-app.use(logger("dev"));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
+const db = require("./models/swerve")
+
+// Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+// Add routes, both API and view
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/swerve";
 
-mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI);
+// Connect to the Mongo DB
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/swervedb");
 
+// Start the API server
 app.listen(PORT, function () {
-  console.log(`App running on port ${PORT}!`);
-})
-
-
-
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+});
