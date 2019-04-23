@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
-import "./Login.css";
+import "../styles/Login.css";
 
 //Create constructor with login info
 export default class Login extends Component {
@@ -33,6 +33,10 @@ export default class Login extends Component {
     render() {
         return (
             <div className="Login">
+                <div className="header">
+                    <div className="headerWaves"></div>
+                    <h1 className="headerFont">SWERVE</h1>
+                </div>
                 <form onSubmit={this.handleSubmit}>
                     <FormGroup controlId="email" bsSize="large">
                         <FormLabel> Email address </FormLabel>
@@ -53,6 +57,7 @@ export default class Login extends Component {
                     </FormGroup>
                     <Button
                         block
+                        bsClass="custom-btn"
                         bsSize="large"
                         disabled={!this.validateForm()}
                         type="submit"
@@ -65,6 +70,3 @@ export default class Login extends Component {
         );
     }
 }
-
-
-
