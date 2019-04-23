@@ -10,7 +10,8 @@ class App extends Component {
       <Router>
       <div>
         
-     
+          {/* Do NOT EDIT THIS ONE USE THE APP.JS IN THE CLIENT FOLDER */}
+
           <Route exact path="/login" component={Login} />
           {/* <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/post" component={Post} />

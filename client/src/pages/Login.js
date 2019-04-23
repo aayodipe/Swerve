@@ -8,14 +8,14 @@ export default class Login extends Component {
         super(props);
 
         this.state = {
-            email: "",
+            username: "",
             password: ""
         };
     }
 
     //Function to allow data in the form fields
     validateForm() {
-        return this.state.email.length > 0 && this.state.password.length > 0;
+        return this.state.username.length > 0 && this.state.password.length > 0;
     }
 
     handleChange = (event) => {
@@ -29,7 +29,7 @@ export default class Login extends Component {
         event.preventDefault();
     }
 
-    //Render form info on page with relevant email and password data
+    //Render form info on page with relevant username and password data
     render() {
         return (
             <div className="Login">
@@ -38,12 +38,12 @@ export default class Login extends Component {
                     <h1 className="headerFont">SWERVE</h1>
                 </div>
                 <form onSubmit={this.handleSubmit}>
-                    <FormGroup controlId="email" bsSize="large">
-                        <FormLabel> Email address </FormLabel>
+                    <FormGroup controlId="username" bsSize="large">
+                        <FormLabel> Username </FormLabel>
                         <FormControl
                             autoFocus
-                            type="email"
-                            value={this.state.email}
+                            type="username"
+                            value={this.state.username}
                             onChange={this.handleChange}
                         />
                     </FormGroup>
