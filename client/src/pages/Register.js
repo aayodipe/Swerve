@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
-import "./Login.css";
+import "../styles/Register.css";
+//create a function that called "userRegistration" which return the registration logics
+//export "User" regisration to the Post.js
 
-//Create constructor with login info
-export default class Login extends Component {
+
+export default class Register extends Component {
+
     constructor(props) {
         super(props);
 
         this.state = {
+            username: "",
             email: "",
             password: ""
         };
@@ -29,35 +33,49 @@ export default class Login extends Component {
         event.preventDefault();
     }
 
-    //Render form info on page with relevant email and password data
+
     render() {
         return (
-            <div className="Login">
+            <div className="Register">
+                <div className="header">
+                    <div className="headerWaves"></div>
+                    <h1 className="headerFont">SWERVE</h1>
+                </div>
                 <form onSubmit={this.handleSubmit}>
-                    <FormGroup controlId="email" bsSize="large">
-                        <FormLabel> Email address </FormLabel>
+                    <FormGroup controlId="username" bsSize="large">
+                        <FormLabel> Username </FormLabel>
                         <FormControl
                             autoFocus
-                            type="email"
-                            value={this.state.email}
+                            type="username"
+                            value={this.state.username}
                             onChange={this.handleChange}
                         />
                     </FormGroup>
                     <FormGroup controlId="password" bsSize="large">
-                        <FormLabel>Password</FormLabel>
+                        <FormLabel> Password </FormLabel>
                         <FormControl
+                            autoFocus
+                            type="password"
                             value={this.state.password}
                             onChange={this.handleChange}
-                            type="password"
+                        />
+                    </FormGroup>
+                    <FormGroup controlId="email" bsSize="large">
+                        <FormLabel>Email address</FormLabel>
+                        <FormControl
+                            value={this.state.email}
+                            onChange={this.handleChange}
+                            type="email"
                         />
                     </FormGroup>
                     <Button
                         block
+                        bsClass="custom-btn"
                         bsSize="large"
                         disabled={!this.validateForm()}
                         type="submit"
                     >
-                        Login
+                        Sign Up
                     </Button>
                 </form>
             </div>
@@ -65,6 +83,3 @@ export default class Login extends Component {
         );
     }
 }
-
-
-
