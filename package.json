@@ -23,5 +23,15 @@
   "devDependencies": {
     "concurrently": "^4.1.0",
     "nodemon": "^1.18.7"
-  }
+  },
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aayodipe/Swerve.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aayodipe/Swerve/issues"
+  },
+  "homepage": "https://github.com/aayodipe/Swerve#readme",
+  "description": ""
 }
