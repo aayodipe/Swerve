@@ -13,14 +13,20 @@ module.exports = {
   findById: function (req, res) {
     db.User
       .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => {res.json(dbModel)
+          console.log(dbModel)
+     })
       .catch(err => res.status(422).json(err));
   },
   create: function (req, res) {
     db.User
       .create(req.body)
-      .then(dbModel => res.json(dbModel))
+      .then(
+           dbModel => {res.json(dbModel)
+           console.log(req.body)}
+           )
       .catch(err => res.status(422).json(err));
+    
   },
   update: function (req, res) {
     db.User
