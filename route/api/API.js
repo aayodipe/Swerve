@@ -8,6 +8,14 @@ Router.route('/')
 //Post to the database
 .post(query.create)
 
+// Matches with "/api/books/:id"
+router
+  .route("/:id")
+  .get(query.findById)
+  .put(query.update)
+  .delete(query.remove);
+
+
 module.exports = Router
 
 
