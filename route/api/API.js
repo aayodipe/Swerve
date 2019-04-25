@@ -9,8 +9,10 @@ Router.route('/')
 .post(query.create)
 
 // Matches with "/api/books/:id"
-router
+Router
   .route("/:id")
+  //This return the streetname
+  .get(query.findByStreetName)
   .get(query.findById)
   .put(query.update)
   .delete(query.remove);
