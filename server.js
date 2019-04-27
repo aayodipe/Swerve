@@ -1,7 +1,7 @@
 const express = require("express");
 const route =  require('./route')
 const mongoose = require("mongoose");
-// const routes = require("./routes");
+const userSeed = require('./scripts/seedDb')
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -16,6 +16,10 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add routes, both API and view
 app.use(route)
+
+// app.post('/api/traffic/seed', (req, res)=>{
+// db.User.insertMany(userSeed)
+// })
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/swervedb");
