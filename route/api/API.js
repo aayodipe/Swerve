@@ -8,6 +8,16 @@ Router.route('/')
 //Post to the database
 .post(query.create)
 
+// Matches with "/api/traffic/:id"
+Router
+  .route("/:id")
+  //This return the streetname
+  .get(query.findByStreetName)
+  .get(query.findById)
+  .put(query.update)
+  .delete(query.remove);
+
+
 module.exports = Router
 
 

@@ -18,6 +18,14 @@ module.exports = {
      })
       .catch(err => res.status(422).json(err));
   },
+  findByStreetName: function (req, res) {
+    db.User
+      .findOne(req.params.StreetName)
+      .then(dbModel => {res.json(dbModel)
+          console.log(dbModel)
+     })
+      .catch(err => res.status(422).json(err));
+  },
   create: function (req, res) {
     db.User
       .create(req.body)
