@@ -8,7 +8,7 @@ Router.route('/')
 //Post to the database
 .post(query.create)
 
-// Matches with "/api/books/:id"
+// Matches with "/api/traffic/:id"
 Router
   .route("/:id")
   //This return the streetname
