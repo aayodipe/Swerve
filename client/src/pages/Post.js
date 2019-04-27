@@ -1,54 +1,86 @@
 import React, { Component } from "react";
-import Login from "./Login";
-import Register from "./Register";
-//Create the function to "UserPost" which  returns user post.
-//NOTE: THIS IS WHERE THE USER WILL WRITE WHATEVER THE WOULD LIKE TO POST AND WHEN THE SUBMIT THEIR POST IT SEND TO THE DATABASE
-//Export Post to the Container
+import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
+import "../styles/Register.css";
+//create a function that called "userRegistration" which return the registration logics
+//export "User" regisration to the Post.js
 
-export default class FormReport extends React.Component {
+
+
+export default class Register extends Component {
+
     constructor(props) {
-      super(props);
-      this.state = {
-        location: "",
-        description:""
-      };
-  
-      this.handleInputChange = this.handleInputChange.bind(this);
-    }
-  
-    handleInputChange(event) {
-      const target = event.target;
-      const value = target.type === 'text' ? target.checked : target.value;
-      const name = target.name;
-  
-      this.setState({
-        [name]: value
-      });
-    }
-  
-    render() {
-      return (
-        <form>
-          <label>
-            Location:
-            <input
-              name="location"
-              type="text"
-              checked={this.state.location}
-              onChange={this.handleInputChange} />
-          </label>
-          <br />
-          <label>
-            Number of guests:
-            <input
-              name="description"
-              type="text"
-              value={this.state.description}
-              onChange={this.handleInputChange} />
-          </label>
-        </form>
-      );
-    }
-  }
+        super(props);
 
-  module.exports = Post.js;
+        this.state = {
+            location: "",
+            description: "",
+            image: ""
+        };
+    }
+
+    //Function to allow data in the form fields
+    validateForm() {
+        return this.state.description.length;;
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.id]: event.target.value
+        });
+    }
+
+    //Prevent login from clearing out
+    handleSubmit = (event) => {
+        event.preventDefault();
+    }
+
+
+    render() {
+        return (
+            <div className="Register">
+                <div className="header">
+                    <div className="headerWaves"></div>
+                    <h1 className="headerFont">SWERVE</h1>
+                </div>
+                <form onSubmit={this.handleSubmit}>
+                    <FormGroup controlId="location" bsSize="large">
+                        <FormLabel> Please enter the location </FormLabel>
+                        <FormControl
+                            autoFocus
+                            type="location"
+                            value={this.state.location}
+                            onChange={this.handleChange}
+                        />
+                    </FormGroup>
+                    <FormGroup controlId="description" bsSize="large">
+                        <FormLabel> Please enter the description of the issue </FormLabel>
+                        <FormControl
+                            autoFocus
+                            type="description"
+                            value={this.state.description}
+                            onChange={this.handleChange}
+                        />
+                    </FormGroup>
+                    <FormGroup controlId="image" bsSize="large">
+                        <FormLabel>Image (optional)</FormLabel>
+                        <FormControl
+                            value={this.state.image}
+                            onChange={this.handleChange}
+                            type="image"
+                        />
+                    </FormGroup>
+                    <Button
+                        block
+                        bsClass="custom-btn"
+                        bsSize="large"
+                        disabled={!this.validateForm()}
+                        type="submit"
+                    >
+                        Send Report
+                    </Button>
+                </form>
+            </div>
+
+        );
+    }
+}
