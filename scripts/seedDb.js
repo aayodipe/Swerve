@@ -107,9 +107,9 @@ const userSeed = [
                   date: new Date(Date.now())
                   }
 ]
-db.User
-  .remove({})
-  .then(() => db.User.insertMany(userSeed))
+
+  
+  db.User.insertMany(userSeed)
   .then(data => {
     console.log(data);
 
