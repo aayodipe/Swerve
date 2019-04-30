@@ -6,7 +6,11 @@ import "../styles/Register.css";
 
 
 
+
+export default class Post extends Component {
+
 export default class Register extends Component {
+
 
     constructor(props) {
         super(props);
@@ -35,6 +39,14 @@ export default class Register extends Component {
     }
 
 
+    handleClick = () => {
+        console.log('this is:', this);
+        alert("I've been clicked!");
+      }
+      
+
+
+
     render() {
         return (
             <div className="Register">
@@ -52,8 +64,11 @@ export default class Register extends Component {
                             onChange={this.handleChange}
                         />
                     </FormGroup>
-                    <FormGroup controlId="description" bsSize="large">
+
+             
+
                         <FormLabel> Please enter the description of the issue </FormLabel>
+
                         <FormControl
                             autoFocus
                             type="description"
@@ -69,6 +84,7 @@ export default class Register extends Component {
                             type="image"
                         />
                     </FormGroup>
+
                     <Button
                         block
                         bsClass="custom-btn"
@@ -77,6 +93,7 @@ export default class Register extends Component {
                         type="submit"
                     >
                         Send Report
+
                     </Button>
                 </form>
             </div>
