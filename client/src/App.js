@@ -8,6 +8,8 @@ import {
 
 import AppHeader from "./component/AppHeader";
 import Home from './pages/Home';
+import Post from './pages/Post';
+import Dashboard from "./pages/Dashboard";
 
 const styles = theme => ({
   main: {
@@ -20,6 +22,8 @@ const styles = theme => ({
 
 const App = ({ classes }) => (
   <Fragment>
+    <Route exact path="/post" component={Post} />
+    <Route exact path="/dashboard" component={Dashboard} />
     <CssBaseline />
     <AppHeader />
     <main className={classes.main}>

@@ -6,7 +6,7 @@ import "../styles/Register.css";
 
 
 
-export default class Register extends Component {
+export default class Post extends Component {
 
     constructor(props) {
         super(props);
@@ -34,7 +34,11 @@ export default class Register extends Component {
         event.preventDefault();
     }
 
-
+    handleClick = () => {
+        console.log('this is:', this);
+        alert("I've been clicked!");
+      }
+      
     render() {
         return (
             <div className="Register">
@@ -53,7 +57,7 @@ export default class Register extends Component {
                         />
                     </FormGroup>
                     <FormGroup controlId="description" bsSize="large">
-                        <FormLabel> Please enter the description of the issue </FormLabel>
+                        <FormLabel> Please enter the description of the issue</FormLabel>
                         <FormControl
                             autoFocus
                             type="description"
@@ -69,14 +73,11 @@ export default class Register extends Component {
                             type="image"
                         />
                     </FormGroup>
-                    <Button
-                        block
-                        bsClass="custom-btn"
-                        bsSize="large"
-                        disabled={!this.validateForm()}
-                        type="submit"
-                    >
-                        Send Report
+                    <Button onClick={this.handleClick}>
+        Send Report
+      
+                    
+                        
                     </Button>
                 </form>
             </div>
