@@ -11,7 +11,12 @@
 
 @font-face {
     font-family: "DK Garden Bed";
-    src: url(./DK\ Garden\ Bed.otf)
+    src: url(./DK\ Garden\ Bed.otf);
+}
+
+@font-face {
+  font-family: "Josephine Sans Regular";
+  src: url(./josefin-sans/JosefinSans-Regular.ttf);
 }
 
 .headerFont {
@@ -45,4 +50,8 @@
 
 .custom-btn {
   background-color: #9FCC3B;
+}
+
+.normal-font {
+  font-family: "Josephine Sans Regular";
 }

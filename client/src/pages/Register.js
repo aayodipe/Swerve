@@ -43,7 +43,7 @@ export default class Register extends Component {
                 </div>
                 <form onSubmit={this.handleSubmit}>
                     <FormGroup controlId="username" bsSize="large">
-                        <FormLabel> Username </FormLabel>
+                        <FormLabel className="normal-font"> Username </FormLabel>
                         <FormControl
                             autoFocus
                             type="username"
@@ -52,7 +52,7 @@ export default class Register extends Component {
                         />
                     </FormGroup>
                     <FormGroup controlId="password" bsSize="large">
-                        <FormLabel> Password </FormLabel>
+                        <FormLabel className="normal-font"> Password </FormLabel>
                         <FormControl
                             autoFocus
                             type="password"
@@ -61,20 +61,14 @@ export default class Register extends Component {
                         />
                     </FormGroup>
                     <FormGroup controlId="email" bsSize="large">
-                        <FormLabel>Email address</FormLabel>
+                        <FormLabel className="normal-font">Email Address</FormLabel>
                         <FormControl
                             value={this.state.email}
                             onChange={this.handleChange}
                             type="email"
                         />
                     </FormGroup>
-                    <Button
-                        block
-                        bsClass="custom-btn"
-                        bsSize="large"
-                        disabled={!this.validateForm()}
-                        type="submit"
-                    >
+                    <Button block className="custom-btn" disabled={!this.validateForm()} type="submit">
                         Sign Up
                     </Button>
                 </form>

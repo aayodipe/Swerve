@@ -8,6 +8,11 @@ import {
 
 import AppHeader from "./component/AppHeader";
 import Home from './pages/Home';
+import Dashboard from "./pages/Dashboard";
+import Post from "./pages/Post";
+import Register from "./pages/Register";
+import Filter from "./pages/Filter";
+import Container from "./pages/Container";
 
 const styles = theme => ({
   main: {
@@ -20,6 +25,11 @@ const styles = theme => ({
 
 const App = ({ classes }) => (
   <Fragment>
+    <Container />
+    {/* <Route exact path="/dashboard" component={Dashboard} />
+    <Route exact path="/post" component={Post} />
+    <Route exact path="/register" component={Register} />
+    <Route exact path="/filter" component={Filter} /> */}
     <CssBaseline />
     <AppHeader />
     <main className={classes.main}>
