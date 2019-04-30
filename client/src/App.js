@@ -1,49 +1,32 @@
-import React, { Component } from 'react';
-import './App.css';
-import Container from './pages/Container'
+import React, { Fragment } from 'react';
+import { Route } from "react-router-dom";
+import { ImplicitCallback } from "@okta/okta-react";
+import {
+  CssBaseline,
+  withStyles,
+} from '@material-ui/core';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-         <Container />
-         </header>
-      </div>
-    );
-  }
-}
+import AppHeader from "./component/AppHeader";
+import Home from './pages/Home';
 
-export default App;
+const styles = theme => ({
+  main: {
+    padding: 3 * theme.spacing.unit,
+    [theme.breakpoints.down('xs')]: {
+      padding: 2 * theme.spacing.unit,
+    },
+  },
+});
 
-// import React, { Component } from 'react';
-// import { BrowserRouter as Router, Route } from "react-router-dom";
-// import './App.css';
-// import Login from "./pages/Login"
-// import Register from "./pages/Register"
-// import Dashboard from "./pages/Dashboard"
+const App = ({ classes }) => (
+  <Fragment>
+    <CssBaseline />
+    <AppHeader />
+    <main className={classes.main}>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/implicit/callback" component={ImplicitCallback} />
+    </main>
+  </Fragment>
+);
 
-// class App extends Component {
-//   render() {
-//     return (
-     
-//       <Router>
-    
-        
-     
-//           <Route exact path="/login" component={Login} />
-//           <Route exact path="/register" component={Register} />
-//           <Route exact path="/dashboard" component={Dashboard} />
-//           {/*<Route exact path="/post" component={Post} />
-//           <Route exact path="/filter" component={Filter} />
-//           <Route component={NoMatch} /> */}
-        
-     
-//     </Router>
-//     );
-    
-//   }
-// }
-
-
-// export default App;
+export default withStyles(styles)(App);
