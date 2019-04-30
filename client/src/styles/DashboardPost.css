@@ -1,0 +1,21 @@
+.PostContainer {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 750px;
+}
+
+.post-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.post-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.post-content {
+    text-align: center;
+}
