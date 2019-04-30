@@ -5,6 +5,7 @@ import "../styles/Register.css";
 //export "User" regisration to the Post.js
 
 
+
 export default class Register extends Component {
 
     constructor(props) {
