@@ -22,7 +22,9 @@ app.use(route)
 // })
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/swervedb");
+const connectDB = require('./config/db')
+connectDB()
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/swervedb");
 
 // Start the API server
 app.listen(PORT, function () {

@@ -109,7 +109,7 @@ const userSeed = [
 ]
 
   
-  db.User.insertMany(userSeed)
+  db.User.remove({})
   .then(data => {
     console.log(data);
 
