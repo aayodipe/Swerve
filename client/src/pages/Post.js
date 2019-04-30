@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
-import "../styles/Register.css";
+import { Button, Form } from "react-bootstrap";
+import "../styles/Post.css";
 //create a function that called "userRegistration" which return the registration logics
 //export "User" regisration to the Post.js
 
@@ -8,8 +8,6 @@ import "../styles/Register.css";
 
 
 export default class Post extends Component {
-
-export default class Register extends Component {
 
 
     constructor(props) {
@@ -41,7 +39,7 @@ export default class Register extends Component {
 
     handleClick = () => {
         console.log('this is:', this);
-        alert("I've been clicked!");
+        alert("Location: " + this.state.location + " Description: " + this.state.description + " Image: " + this.state.image);
       }
       
 
@@ -55,44 +53,41 @@ export default class Register extends Component {
                     <h1 className="headerFont">SWERVE</h1>
                 </div>
                 <form onSubmit={this.handleSubmit}>
-                    <FormGroup controlId="location" bsSize="large">
-                        <FormLabel> Please enter the location </FormLabel>
-                        <FormControl
+                    <Form.Group controlId="location" bsSize="large">
+                        <Form.Label className="normal-font"> Please enter the location </Form.Label>
+                        <Form.Control
                             autoFocus
                             type="location"
                             value={this.state.location}
                             onChange={this.handleChange}
                         />
-                    </FormGroup>
+                    </Form.Group>
+                    <Form.Group controlId="description">
 
              
 
-                        <FormLabel> Please enter the description of the issue </FormLabel>
+                        <Form.Label className="normal-font"> Please enter the description of the issue </Form.Label>
 
-                        <FormControl
+                        <Form.Control
                             autoFocus
+                            as="textarea"
+                            rows="5"
                             type="description"
                             value={this.state.description}
                             onChange={this.handleChange}
                         />
-                    </FormGroup>
-                    <FormGroup controlId="image" bsSize="large">
-                        <FormLabel>Image (optional)</FormLabel>
-                        <FormControl
+                    </Form.Group>
+                    <Form.Group controlId="image" bsSize="large">
+                        <Form.Label className="normal-font">Image (optional)</Form.Label>
+                        <Form.Control
                             value={this.state.image}
                             onChange={this.handleChange}
                             type="image"
                         />
-                    </FormGroup>
+                    </Form.Group>
 
-                    <Button
-                        block
-                        bsClass="custom-btn"
-                        bsSize="large"
-                        disabled={!this.validateForm()}
-                        type="submit"
-                    >
-                        Send Report
+                    <Button className="custom-btn" onClick={this.handleClick}>
+                        Post
 
                     </Button>
                 </form>

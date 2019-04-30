@@ -10,9 +10,6 @@ class Container extends Component {
     return (
      
       <Router>   
-          
-          <div>
-          <Navbar />
           <div className = 'container'>
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
@@ -22,7 +19,6 @@ class Container extends Component {
           </div>
           {/* <Route exact path="/filter" component={Filter} />
           <Route component={NoMatch} /> */} */}
-        </div>
      
     </Router>
     );
