@@ -50,16 +50,16 @@ router.post('/', [
     // Encrypt Password
     const salt = bcrypt.genSaltSync(10);
     user.password = bcrypt.hashSync(password, salt);
-   
+   //Save user to database
     await user.save();
-
+//Set token for the register user to inorder to access protected route
    const payload = {
      user: {
        id: user.id
      }
    };
 
-jwt.sign(payload, config.get('jwtScrect'), { expiresIn:360 }, (err, token) =>{
+jwt.sign(payload, config.get('jwtSecret'), { expiresIn:3600 }, (err, token) =>{
    if(err) throw err;
    res.json({token})
   });
