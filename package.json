@@ -1,38 +1,21 @@
 {
-  "name": "swerve",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "axios": "^0.18.0",
-    "config": "^3.1.0",
-    "express": "^4.16.3",
-    "if-env": "^1.0.4",
-    "mongoose": "^5.3.16"
-  },
+  "name": "swerve2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-    "client": "cd client && npm run start",
-    "seed": "node scripts/seedDB.js",
-    "install": "cd client && npm install",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "server": "nodemon server"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "concurrently": "^4.1.0",
-    "nodemon": "^1.18.7"
-  },
-  "main": "server.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/aayodipe/Swerve.git"
-  },
-  "bugs": {
-    "url": "https://github.com/aayodipe/Swerve/issues"
-  },
-  "homepage": "https://github.com/aayodipe/Swerve#readme",
-  "description": ""
+  "dependencies": {
+    "config": "^3.1.0",
+    "express": "^4.16.4",
+    "express-validator": "^5.3.1",
+    "mongoose": "^5.5.5",
+    "nodemon": "^1.18.11",
+    "validator": "^10.11.0"
+  }
 }
