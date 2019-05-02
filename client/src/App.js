@@ -10,6 +10,7 @@ import AppHeader from "./component/AppHeader";
 import Home from './pages/Home';
 import Post from './pages/Post';
 import Dashboard from "./pages/Dashboard";
+import Register from "./pages/Register";
 import Login from "./pages/Login";
 
 const styles = theme => ({
@@ -26,6 +27,7 @@ const App = ({ classes }) => (
     <Route exact path="/login" component={Login} />
     <Route exact path="/post" component={Post} />
     <Route exact path="/dashboard" component={Dashboard} />
+    <Route exact path="/register" component={Register} />
     <CssBaseline />
     <AppHeader />
     <main className={classes.main}>

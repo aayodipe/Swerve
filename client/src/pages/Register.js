@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import "../styles/Register.css";
 //create a function that called "userRegistration" which return the registration logics
 //export "User" regisration to the Post.js
@@ -43,32 +43,32 @@ export default class Register extends Component {
                     <h1 className="headerFont">SWERVE</h1>
                 </div>
                 <form onSubmit={this.handleSubmit}>
-                    <FormGroup controlId="username" bsSize="large">
-                        <FormLabel className="normal-font"> Username </FormLabel>
-                        <FormControl
+                    <Form.Group controlId="username" bsSize="large">
+                        <Form.Label className="normal-font"> Username </Form.Label>
+                        <Form.Control
                             autoFocus
                             type="username"
                             value={this.state.username}
                             onChange={this.handleChange}
                         />
-                    </FormGroup>
-                    <FormGroup controlId="password" bsSize="large">
-                        <FormLabel className="normal-font"> Password </FormLabel>
-                        <FormControl
+                    </Form.Group>
+                    <Form.Group controlId="password" bsSize="large">
+                        <Form.Label className="normal-font"> Password </Form.Label>
+                        <Form.Control
                             autoFocus
                             type="password"
                             value={this.state.password}
                             onChange={this.handleChange}
                         />
-                    </FormGroup>
-                    <FormGroup controlId="email" bsSize="large">
-                        <FormLabel className="normal-font">Email Address</FormLabel>
-                        <FormControl
+                    </Form.Group>
+                    <Form.Group controlId="email" bsSize="large">
+                        <Form.Label className="normal-font">Email Address</Form.Label>
+                        <Form.Control
                             value={this.state.email}
                             onChange={this.handleChange}
                             type="email"
                         />
-                    </FormGroup>
+                    </Form.Group>
                     <Button block className="custom-btn" disabled={!this.validateForm()} type="submit">
                         Sign Up
                     </Button>
