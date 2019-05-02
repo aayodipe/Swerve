@@ -69,7 +69,7 @@ export default class Register extends Component {
                             type="email"
                         />
                     </Form.Group>
-                    <Button block className="custom-btn" disabled={!this.validateForm()} type="submit">
+                    <Button block className="custom-btn">
                         Sign Up
                     </Button>
                 </form>

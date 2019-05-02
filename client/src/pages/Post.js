@@ -86,7 +86,7 @@ export default class Post extends Component {
                         />
                     </Form.Group>
 
-                    <Button className="custom-btn" onClick={this.handleClick}>
+                    <Button block className="custom-btn" onClick={this.handleClick}>
                         Post
 
                     </Button>

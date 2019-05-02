@@ -48,10 +48,10 @@
   animation: drift 3000ms infinite linear;
 }
 
-.custom-btn {
+.custom-btn, .custom-btn:hover {
   background-color: #9FCC3B;
   font-family: "Josephine Sans Regular";
-  font-size: 20px;
+  font-size: 21px;
   border-color: #9FCC3B;
 }
 
