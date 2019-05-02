@@ -12,9 +12,9 @@
 router.post(
   '/',
   [
-    auth,
+    
     [
-      check('text', 'Text is required')
+      check('location', 'Text is required')
         .not()
         .isEmpty()
     ]
@@ -26,13 +26,13 @@ router.post(
     }
 
     try {
-      const user = await User.findById(req.user.id).select('-password');
+      // const user = await User.findById(req.user.id).select('-password');
 
       const newPost = new Post({
-        text: req.body.text,
-        name: user.name,
-        image: user.image,
-        user: req.user.id
+        location: req.body.location,
+        description: req.body.description,
+         image:  req.body.description,
+         user:  req.body.user
       });
 
       const post = await newPost.save();
