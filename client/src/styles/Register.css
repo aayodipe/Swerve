@@ -48,8 +48,9 @@
   animation: drift 3000ms infinite linear;
 }
 
-.custom-btn {
+.custom-btn, .custom-btn:hover {
   background-color: #9FCC3B;
+  border-color: #9FCC3B;
 }
 
 .normal-font {

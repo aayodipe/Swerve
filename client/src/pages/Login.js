@@ -1,5 +1,6 @@
 import React, { Component} from 'react';
 import { Button, Form } from "react-bootstrap";
+import "../styles/Login.css"
 
 export default class Login extends Component{
      constructor(props) {
@@ -54,7 +55,7 @@ export default class Login extends Component{
                             onChange={this.handleChange}
                         />
                     </Form.Group>
-                    <Button block className="custom-btn" disabled={!this.validateForm()} type="submit">
+                    <Button block className="custom-btn normal-font">
                         Log In
                     </Button>
                 </form>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "../styles/Post.css";
 import API from "../util/API";
 //create a function that called "userRegistration" which return the registration logics
@@ -77,8 +78,8 @@ export default class Post extends Component {
                     <h1 className="headerFont">SWERVE</h1>
                 </div>
                 <form onSubmit={this.handleSubmit}>
-                    <Form.Group controlId="location" bsSize="large">
-                        <Form.Label className="normal-font"> Please enter the location </Form.Label>
+                    <Form.Group controlId="location">
+                        <Form.Label className="normal-font"> Please enter the street name </Form.Label>
                         <Form.Control
                             autoFocus
                             type="text"
@@ -101,7 +102,7 @@ export default class Post extends Component {
                             onChange={this.handleInputChange}
                         />
                     </Form.Group>
-                    <Form.Group controlId="image" bsSize="large">
+                    <Form.Group controlId="image">
                         <Form.Label className="normal-font">Image (optional)</Form.Label>
                         <Form.Control
                             value={this.state.image}
@@ -110,9 +111,10 @@ export default class Post extends Component {
                         />
                     </Form.Group>
 
-                    <Button className="custom-btn" onClick={this.handleFormSubmit}>
-                        Post
-
+                    <Button block className="custom-btn" onClick={this.handleFormSubmit}>
+                    <Link to={"/dashboard"} className="link">
+                        Submit
+                    </Link>
                     </Button>
                 </form>
             </div>
