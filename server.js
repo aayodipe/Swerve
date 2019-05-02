@@ -1,30 +1,27 @@
-const express = require("express");
-const route =  require('./route')
-const mongoose = require("mongoose");
-const userSeed = require('./scripts/seedDb')
-const app = express();
-const PORT = process.env.PORT || 3001;
+const express = require('express');
+const config = require('config')
+const connectDB = require('./config/db')
+const PORT = process.env.PORT || 3001
+const app = express()
 
-const db = require("./models/swerve")
+//Define Routes
+const userRoute = require('./route/api/users')
+const postRoute = require('./route/api/posts')
+const authRoute = require('./route/api/auth')
 
-// Define middleware here
+// initialize middleware 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
-// Add routes, both API and view
-app.use(route)
 
-// app.post('/api/traffic/seed', (req, res)=>{
-// db.User.insertMany(userSeed)
-// })
-
+//Use route
+app.use('/api/user', userRoute)
+app.use('/api/posts', postRoute)
+app.use('/api/auth', authRoute)
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/swervedb");
+connectDB()
 
-// Start the API server
-app.listen(PORT, function () {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
-});
+
+
+app.listen(PORT, ()=>{
+     console.log( `Server Listen to port ${PORT}`)
+})

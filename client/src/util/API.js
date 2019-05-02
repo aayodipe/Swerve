@@ -2,23 +2,20 @@ import axios from "axios";
 
 export default {
   // Gets all Traffic
-  getAllTraffic: function() {
-    return axios.get("/api/traffic");
+  getAllPosts: function() {
+    return axios.get("/api/post");
   },
   // Gets the Traffic with the given id
-  getTrafficById: function(id) {
-    return axios.get("/api/traffic/" + id);
+  getPostById: function(id) {
+    return axios.get("/api/post/" + id);
   },
-    // Gets the Traffic with the given id
-  getTrafficByStreetName: function(streetName) {
-     return axios.get("/api/traffic/" + streetName);
-   },
+
   // Deletes the Traffic with the given id
-  deleteBook: function(id) {
-    return axios.delete("/api/traffic/" + id);
+  deletePost: function(id) {
+    return axios.delete("/api/post/" + id);
   },
   // Saves a Traffic to the database
-  saveBook: function(bookData) {
-    return axios.post("/api/traffic", bookData);
+  savePost: function(formData) {
+    return axios.post("/api/post", formData);
   }
 };
