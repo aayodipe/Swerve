@@ -23,20 +23,21 @@ export default class Post extends Component {
     }
 
     //Function to allow data in the form fields
-    validateForm() {
-        return this.state.description.length;;
-    }
+    // validateForm() {
+    //     return this.state.description.length;;
+    // }
     componentDidMount() {
         this.loadAllPost();
       }
 
       loadAllPost = () => {
         API.getAllPosts()
-          .then(res =>
+          .then(res =>{
+            console.log(res)
             this.setState({ posts: res.data,                 
             location: "",
             description: "",
-            image: "" })
+            image: "" })}
           )
           .catch(err => console.log(err));
       };
@@ -57,7 +58,12 @@ export default class Post extends Component {
             description: this.state.description,
             image: this.state.image
           })
-            .then(res => this.loadAllPost())
+            .then(
+                res => {
+                this.loadAllPost()
+                console.log(res)
+
+            })
             .catch(err => console.log(err));
         }
       };
