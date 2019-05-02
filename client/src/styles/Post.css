@@ -59,3 +59,8 @@
   font-family: "Josephine Sans Regular";
   font-size: 18px;
 }
+
+.link {
+    height: 100px;
+    padding: 125px;
+}
