@@ -20,28 +20,6 @@ export default class Post extends Component {
         };
     }
 
-    //Function to allow data in the form fields
-    validateForm() {
-        return this.state.description.length;;
-    }
-
-    handleChange = (event) => {
-        this.setState({
-            [event.target.id]: event.target.value
-        });
-    }
-
-    //Prevent login from clearing out
-    handleSubmit = (event) => {
-        event.preventDefault();
-    }
-
-
-    handleClick = () => {
-        console.log('this is:', this);
-        alert("Location: " + this.state.location + " Description: " + this.state.description + " Image: " + this.state.image);
-      }
-      
 
 
 

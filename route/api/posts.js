@@ -14,7 +14,7 @@ router.post(
   [
     
     [
-      check('location', 'Text is required')
+      check('location', 'Location is required')
         .not()
         .isEmpty()
     ]
