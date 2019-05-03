@@ -94,10 +94,12 @@ import API from "../util/API";
                             
                         />
                     </Form.Group>
+
                     <Button className="custom-btn" 
                     type = "submit"
                     onClick={this.handleFormSubmit}>
                         Sign up
+
                     </Button>
                 </form>
             </div>

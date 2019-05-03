@@ -16,7 +16,7 @@ class Navbar extends Component {
                    <li className="nav-item active">
                      <Link className="nav-link" to="/filter">Filter </Link>
                    </li>
-                   <li class="nav-item">
+                   <li className="nav-item">
                      <Link className="nav-link" to="/login">Sign Out</Link>
                    </li>
                    <li className="nav-item">
