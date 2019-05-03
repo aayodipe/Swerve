@@ -17,5 +17,14 @@ export default {
   // Saves a Traffic to the database
   savePost: function(formData) {
     return axios.post("/api/posts", formData);
-  }
+  },
+
+  // Saves a User to the database
+  saveUser: function(formData) {
+    return axios.post("/api/user", formData);
+  },
+  // Gets the User by id
+  getUserById: function(id) {
+    return axios.get("/api/posts/" + id);
+  },
 };
