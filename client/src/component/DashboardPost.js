@@ -19,7 +19,7 @@ export default class DashboardPost extends Component {
                 console.log("Description: " + res.data.description);
                 console.log("Location: " + res.data[0].location);
                 this.setState({ posts: res.data});
-                this.setState({ description: res.data.description});
+                this.setState({ description: res.data[0].description});
                 this.setState({ location: res.data[0].location});
             }
         )
@@ -32,7 +32,7 @@ export default class DashboardPost extends Component {
                     <h1>Username</h1>
                     <h1>@{ this.state.location}</h1>
                 </div>
-                <p className="post-content">This is the post cotent</p>
+                <p className="post-content">{this.state.description}</p>
                 <div className="post-bottom">
                     <h2>Notes</h2>
                     <h2>Likes</h2>
