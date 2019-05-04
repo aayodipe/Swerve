@@ -58,6 +58,7 @@ export default class Login extends Component{
                     <Button block className="custom-btn normal-font">
                         Log In
                     </Button>
+                    <p className="sign-up">Don't have an account?  <a href="/register" className="sign-up-link"> Sign Up</a></p>
                 </form>
             </div>
           )

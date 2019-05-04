@@ -61,3 +61,15 @@
   font-family: "Josephine Sans Regular";
   font-size: 20px;
 }
+
+.sign-up {
+  font-family: "Josephine Sans Regular";
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.sign-up-link {
+  color: black;
+}
