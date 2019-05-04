@@ -9,3 +9,7 @@
     display: flex;
     justify-content: space-around;
 }
+
+.link-text {
+    color: black;
+}
