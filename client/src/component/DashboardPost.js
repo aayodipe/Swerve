@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import "../styles/DashboardPost.css"
 import API from "../util/API";
+import Post from "../pages/Post"
 
 
 export default class DashboardPost extends Component {
 
     state = {
+        
         posts: [],
         description: [],
         location: []
@@ -30,9 +32,15 @@ export default class DashboardPost extends Component {
             <div className="PostContainer">
                 <div className="post-top">
                     <h1>Username</h1>
-                    <h1>@{ this.state.location}</h1>
+                    <h1>{ this.state.posts.map((post) => {
+                        return <p>{post.location}</p>
+                    })}</h1>
                 </div>
-                <p className="post-content">{this.state.description}</p>
+                <p className="post-content">{
+                    this.state.posts.map((post) => {
+                        return <p>{post.description}</p>
+                    })
+                }</p>
                 <div className="post-bottom">
                     <h2>Notes</h2>
                     <h2>Likes</h2>
