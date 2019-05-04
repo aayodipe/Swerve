@@ -17,6 +17,8 @@ export default class Login extends Component{
       validateForm() {
           return this.state.username.length > 0 && this.state.password.length > 0;
       }
+
+      //We have to put something in here that says if the password or email is wrong then the page will reload and make you type again, otherwise if the password and email are correct you can hit the log in button and it will take you to the dashboard
   
       handleChange = (event) => {
           this.setState({

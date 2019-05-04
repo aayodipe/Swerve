@@ -21,7 +21,7 @@ export default class DashboardPost extends Component {
                 console.log("Description: " + res.data.description);
                 console.log("Location: " + res.data[0].location);
                 this.setState({ posts: res.data});
-                this.setState({ description: res.data.description});
+                this.setState({ description: res.data[0].description});
                 this.setState({ location: res.data[0].location});
             }
         )
