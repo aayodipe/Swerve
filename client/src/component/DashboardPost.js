@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import "../styles/DashboardPost.css"
 import API from "../util/API";
 import Post from "../pages/Post"
+import PotholePosting from './PotholePosting'; 
 
 
 export default class DashboardPost extends Component {
@@ -31,16 +32,10 @@ export default class DashboardPost extends Component {
         return (
             <div className="PostContainer">
                 <div className="post-top">
-                    <h1>Username</h1>
-                    <h1>{ this.state.posts.map((post) => {
-                        return <p>{post.location}</p>
-                    })}</h1>
+                    { this.state.posts.map((post) => {
+                        return <div style={{ marginBottom: 20 }}><PotholePosting post={post} /></div>
+                    })}
                 </div>
-                <p className="post-content">{
-                    this.state.posts.map((post) => {
-                        return <p>{post.description}</p>
-                    })
-                }</p>
                 <div className="post-bottom">
                     <h2>Notes</h2>
                     <h2>Likes</h2>
