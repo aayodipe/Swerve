@@ -17,13 +17,12 @@ class Container extends Component {
           
          <Route exact path="/post" component={Post} />
           </div>
-          {/* <Route exact path="/filter" component={Filter} />
-          <Route component={NoMatch} /> */} */}
+        
      
     </Router>
     );
     
-  }
+        }
 }
 
 
