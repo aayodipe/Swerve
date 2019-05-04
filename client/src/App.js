@@ -6,12 +6,13 @@ import {
   withStyles,
 } from '@material-ui/core';
 
-import AppHeader from "./component/AppHeader";
+// import AppHeader from "./component/AppHeader";
 import Home from './pages/Home';
 import Post from './pages/Post';
 import Dashboard from "./pages/Dashboard";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import Filter from "./pages/Filter";
 
 const styles = theme => ({
   main: {
@@ -28,8 +29,9 @@ const App = ({ classes }) => (
     <Route exact path="/post" component={Post} />
     <Route exact path="/dashboard" component={Dashboard} />
     <Route exact path="/register" component={Register} />
+    <Route exact path="/filter" component={Filter} />
     <CssBaseline />
-    <AppHeader />
+    {/* <AppHeader /> */}
     <main className={classes.main}>
       <Route exact path="/" component={Home} />
       <Route exact path="/implicit/callback" component={ImplicitCallback} />

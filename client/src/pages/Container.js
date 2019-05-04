@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Login from "./Login"
 import Register from "./Register"
 import Dashboard from "./Dashboard"
-import Navbar from './Navbar'
+// import Navbar from './Navbar'
+import Filter from "./Filter"
 import Post from './Post'
 class Container extends Component {
   render() {
@@ -14,7 +15,7 @@ class Container extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/dashboard" component={Dashboard} />
-          
+          <Route exact path="/filter" component={Filter} />
          <Route exact path="/post" component={Post} />
           </div>
         

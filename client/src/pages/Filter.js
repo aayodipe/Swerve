@@ -6,7 +6,7 @@ export default class Filter extends Component {
     render() {
         return (
             <div>
-                <Navbar />
+                {/* <Navbar /> */}
                 <h1>This is the filter</h1>
             </div>
         );

@@ -72,21 +72,21 @@ export default class Register extends Component {
             <div className="Register">
                 <div className="header">
                     <div className="headerWaves"></div>
-                    <h1 className="headerFont">User Registration</h1>
+                    <h1 className="headerFont">SWERVE</h1>
                 </div>
                 <div>
                     
                 </div>
                 <form>
                     <Form.Group controlId="name" bsSize="large">
-                        <Form.Label className="normal-font"> Name </Form.Label>
+                        <Form.Label className="normal-font"> Username </Form.Label>
                         <Form.Control
                             autoFocus
                             type = "text"
                             name="name"
                             value={this.state.name}
                             onChange={this.handleInputChange}
-                            placeholder = "Name"
+                            placeholder = "Username"
                         />
                     </Form.Group>
                     <Form.Group controlId="email" bsSize="large">
@@ -96,7 +96,7 @@ export default class Register extends Component {
                             value={this.state.email}
                             onChange={this.handleInputChange}
                             type="email"
-                            placeholder ="example@yourname.com"
+                            placeholder ="example@email.com"
                         />
                     </Form.Group>
                     <Form.Group controlId="password" bsSize="large">
@@ -107,19 +107,19 @@ export default class Register extends Component {
                             type="password"
                             value={this.state.password}
                             onChange={this.handleInputChange}
-                            placeholder ="Password must be min of letter"
+                            placeholder ="Must be at least one character"
                         />
                     
                     </Form.Group>
                     <Form.Group controlId="password2" bsSize="large">
-                        <Form.Label className="normal-font"> Password2 </Form.Label>
+                        <Form.Label className="normal-font"> Password </Form.Label>
                         <Form.Control
                             autoFocus
                             type="password"
                             name= "password2"
                             value={this.state.password2}
                             onChange={this.handleInputChange}
-                            placeholder = "Must match with password"
+                            placeholder = "Re-enter password"
                         />
                     
                     </Form.Group>
