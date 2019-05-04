@@ -74,6 +74,9 @@ export default class Register extends Component {
                     <div className="headerWaves"></div>
                     <h1 className="headerFont">User Registration</h1>
                 </div>
+                <div>
+                    
+                </div>
                 <form>
                     <Form.Group controlId="name" bsSize="large">
                         <Form.Label className="normal-font"> Name </Form.Label>
