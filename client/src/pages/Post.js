@@ -77,7 +77,7 @@ export default class Post extends Component {
                     <div className="headerWaves"></div>
                     <h1 className="headerFont">SWERVE</h1>
                 </div>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleFormSubmit}>
                     <Form.Group controlId="location">
                         <Form.Label className="normal-font"> Please enter the street name </Form.Label>
                         <Form.Control
