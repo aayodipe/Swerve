@@ -101,10 +101,7 @@ router.delete('/:id', auth, async (req, res) => {
        res.json({ msg: 'Post removed' });
      } catch (err) {
        console.error(err.message);
-       if (err.kind === 'ObjectId') {
-         return res.status(404).json({ msg: 'Post not found' });
-       }
-       res.status(500).send('Server Error');
+         res.status(500).send('Server Error');
      }
    });
 
@@ -135,4 +132,31 @@ router.put('/like/:id', auth, async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
+
+//Comment to post 
+
+router.put('/comment/:id', auth, async (req, res)=>{
+  try{
+    //Get the post 
+    const post = await Post.findById(req.params.id)
+    //Get the user that posted comments and remove its password from the response
+    const user = await User.findById(req.user.id).select('-password')
+    const newComments = {
+      text: req.body.text,
+      name: user.name,
+      user :req.user.id,
+      image: user.image
+    }
+    // Add to post
+    post.comments.unshift(newComments)
+    //Save post
+    await post.save()
+   res.json(newComments)
+
+  }catch(err){
+    res.status(500).json({msg: "Server error"})
+    console.log(err.message)
+    
+  }
+})
  module.exports = router

@@ -27,4 +27,8 @@ export default {
   getUserById: function(id) {
     return axios.get("/api/posts/" + id);
   },
+    // Like Post url
+    getUserById: function(id) {
+      return axios.get("/api/posts/like" + id);
+    },
 };
