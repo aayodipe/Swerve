@@ -9,7 +9,6 @@ export default class Dashboard extends Component {
         return (
             <div>
                 <Navbar />
-                <h1>This is the Dashboard</h1>
                 <DashboardPost />
                 <DashboardFooter />
             </div>

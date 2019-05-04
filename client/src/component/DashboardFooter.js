@@ -6,7 +6,7 @@ export default class DashboardFooter extends Component {
     render() {
         return (
             <div className="footer-container">
-                <div className="post-top">
+                <div className="footer-links">
                     <h1>Filter</h1>
                     <h1>Post</h1>
                 </div>
