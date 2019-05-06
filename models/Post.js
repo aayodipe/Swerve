@@ -4,16 +4,14 @@ const Schema = mongoose.Schema;
 const PostSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
-    // TODO: Double check
-    ref: 'User'
+    ref: 'users'
   },
   location: {
     type: String,
     required: true
   },
   description: {
-    type: String,
-    required: true
+    type: String
   },
   name: {
     type: String
@@ -35,7 +33,7 @@ const PostSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'users'
       },
-      text: {
+      description: {
         type: String,
         required: true
       },

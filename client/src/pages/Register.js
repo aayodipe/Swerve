@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { register } from '../actions/auth';
+import '../styles/Register.css'
 
 
 const Register = ({ register, isAuthenticated }) => {
@@ -55,8 +56,7 @@ const Register = ({ register, isAuthenticated }) => {
             onChange={e => onChange(e)}
           />
           <small className='form-text'>
-            This site uses Gravatar so if you want a profile image, use a
-            Gravatar email
+            We promised not to share your email...
           </small>
         </div>
         <div className='form-group'>
