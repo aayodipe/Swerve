@@ -1,134 +1,97 @@
-import React, { Component } from "react";
-import { Button, Form } from "react-bootstrap";
-import "../styles/Register.css";
-import API from "../util/API";
-//create a function that called "userRegistration" which return the registration logics
-//export "User" regisration to the Post.js
+import React, { Fragment, useState } from 'react';
+import { connect } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
+import { register } from '../actions/auth';
+import '../styles/Register.css'
 
 
+const Register = ({ register, isAuthenticated }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    password2: ''
+  });
 
-export default class Register extends Component {
+  const { name, email, password, password2 } = formData;
 
-    constructor(props) {
-        super(props);
+  const onChange = e =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
 
-        this.state = {
-            name: "",
-            email: "",
-            password: "",
-            password2:""
-        };
+  const onSubmit = async e => {
+    e.preventDefault();
+    if (password !== password2) {
+      alert('Passwords do not match');
+    } else {
+      register({ name, email, password });
     }
+  };
 
-    //Function to allow data in the form fields
-    // validateForm() {
-    //     return this.state.name.length > 0 && this.state.password.length > 0;
-    // }
-//Clear from input
-    clearFormInput(){
-       this.setState({ 
-           name: "",
-           email: "",
-           password: "",
-           password2:"" })}
-    
-    //Handle Form Change
-    handleInputChange = event => {
-      const { name, value } = event.target;
-      this.setState({
-        [name]: value
-      });
-    };
+  if (isAuthenticated) {
+    return <Redirect to='/dashboard' />;
+  }
+
+  return (
+    <Fragment>
+      <h1 className='large text-primary'>Sign Up</h1>
+      <p className='lead'>
+        <i className='fas fa-user' /> Create Your Account
+      </p>
+      <form className='form' onSubmit={e => onSubmit(e)}>
+        <div className='form-group'>
+          <input
+            type='text'
+            placeholder='Name'
+            name='name'
+            value={name}
+            onChange={e => onChange(e)}
+          />
+        </div>
+        <div className='form-group'>
+          <input
+            type='email'
+            placeholder='Email Address'
+            name='email'
+            value={email}
+            onChange={e => onChange(e)}
+          />
+          <small className='form-text'>
+            We promised not to share your email...
+          </small>
+        </div>
+        <div className='form-group'>
+          <input
+            type='password'
+            placeholder='Password'
+            name='password'
+            value={password}
+            onChange={e => onChange(e)}
+          />
+        </div>
+        <div className='form-group'>
+          <input
+            type='password'
+            placeholder='Confirm Password'
+            name='password2'
+            value={password2}
+            onChange={e => onChange(e)}
+          />
+        </div>
+        <input type='submit' className='btn btn-primary' value='Register' />
+      </form>
+      <p className='my-1'>
+        Already have an account? <Link to='/login'>Sign In</Link>
+      </p>
+    </Fragment>
+  );
+};
 
 
-//Handle Form Submit
-    handleFormSubmit = event => {
-      event.preventDefault();
-      if (!this.state.email){
-          alert('Please enter an email!')
-      }else 
-      if(this.state.password  !== this.state.password2){
-          alert('Password do not match!')
-      }else{
-          //Save to User's database
-        API.saveUser({
-          name: this.state.name,
-          email: this.state.email,
-          password: this.state.password,
-         
-        })
-           .then(
-                res => {
-                   
-                this.clearFormInput()
-                console.log(res)
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
 
-            })
-            .catch(err => console.log(err.message));
-      }
-    };
-    render() {
-        return (
-            <div className="Register">
-                <div className="header">
-                    <div className="headerWaves"></div>
-                    <h1 className="headerFont">SWERVE</h1>
-                </div>
-                <div>
-                    
-                </div>
-                <form>
-                    <Form.Group controlId="name" bsSize="large">
-                        <Form.Label className="normal-font"> Username </Form.Label>
-                        <Form.Control
-                            autoFocus
-                            type = "text"
-                            name="name"
-                            value={this.state.name}
-                            onChange={this.handleInputChange}
-                            placeholder = "Username"
-                        />
-                    </Form.Group>
-                    <Form.Group controlId="email" bsSize="large">
-                        <Form.Label className="normal-font">Email Address</Form.Label>
-                        <Form.Control
-                            name = "email"
-                            value={this.state.email}
-                            onChange={this.handleInputChange}
-                            type="email"
-                            placeholder ="example@email.com"
-                        />
-                    </Form.Group>
-                    <Form.Group controlId="password" bsSize="large">
-                        <Form.Label className="normal-font"> Password </Form.Label>
-                        <Form.Control
-                            autoFocus
-                            name= "password"
-                            type="password"
-                            value={this.state.password}
-                            onChange={this.handleInputChange}
-                            placeholder ="Must be at least one character"
-                        />
-                    
-                    </Form.Group>
-                    <Form.Group controlId="password2" bsSize="large">
-                        <Form.Label className="normal-font"> Password </Form.Label>
-                        <Form.Control
-                            autoFocus
-                            type="password"
-                            name= "password2"
-                            value={this.state.password2}
-                            onChange={this.handleInputChange}
-                            placeholder = "Re-enter password"
-                        />
-                    
-                    </Form.Group>
-                   
-                    <Button block className="custom-btn" type="submit" onClick = {this.handleFormSubmit}>
-                        Sign Up
-                    </Button>
-                </form>
-            </div>
-
-        );
-    }}
+export default connect(
+  mapStateToProps,
+  {  register }
+)(Register);
