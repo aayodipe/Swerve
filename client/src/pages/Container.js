@@ -11,7 +11,7 @@ class Container extends Component {
     return (
      
       <Router>   
-          <div className = 'container'>
+          <div className = "container">
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/dashboard" component={Dashboard} />
