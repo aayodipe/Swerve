@@ -17,6 +17,7 @@
     color: #003650;
     padding-top: 20px;
     padding-left: 25px;
+    z-index: 12;
 }
 
 .username-text {
@@ -37,6 +38,7 @@
     padding-top: 10px;
     display: flex;
     align-items: center;
+    z-index: 13;
 }
 
 /* .box {
@@ -96,15 +98,16 @@
     top: 0;
     left: 0;
     fill: #0479AA;
-    opacity: .4;
+    opacity: .5;
   }
   .svg-container {
     display: inline-block;
     position: relative;
-    width: 200%;
-    padding-bottom: 15%;
+    width: 100%;
+    padding-bottom: 10%;
     vertical-align: middle;
     overflow: hidden;
+    z-index: -1;
   }
 
   .wave {

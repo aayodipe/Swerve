@@ -1,0 +1,25 @@
+@font-face {
+    font-family: "Josephine Sans Regular";
+    src: url(./josefin-sans/JosefinSans-Regular.ttf);
+}
+
+.logout-button {
+    height: 50px;
+    /* display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end; */
+    position: relative;
+    top: 50px;
+    left: 1330px;
+    padding-right: 27px;
+    font-family: "Josephine Sans Regular";
+    /* background-color: #0479AA; */
+    background-color: rgba(4, 121, 170, .02);
+    z-index: 14;
+}
+
+.navbar {
+    background-color: rgba(4, 121, 170, .5);
+
+}
