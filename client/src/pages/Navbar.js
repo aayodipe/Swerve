@@ -3,6 +3,24 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../actions/auth';
 
+function Nav() {
+  return (
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <a className="navbar-brand" href="/posts">Google Books Search</a> 
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item">
+            <a className="nav-link" href="/">Search</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="/saved">Save</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
+}
+
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <ul>
