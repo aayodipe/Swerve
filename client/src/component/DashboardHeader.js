@@ -1,16 +1,19 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 import "../styles/header.css"
 import logo from "../styles/icon_logo.png";
 
-export default class DashboardHeader extends Component {
+class DashboardHeader extends Component {
 
     render() {
+        console.log(this.props);
+
         return (
             <div className="swerve-header">
                 <h1 className="header-text">SWERVE</h1>
                 <div className="username-logo">
                     <img src={logo} alt="user icon" className="logo" />
-                    <h1 className="username-text">Logged In Username</h1>
+                    {this.props.auth.user && <h1 className="username-text">Hello, {this.props.auth.user.name}!</h1>}
                 </div>
                 <div className="box">
                     <div className="header-waves"></div>
@@ -24,3 +27,12 @@ export default class DashboardHeader extends Component {
         );
     }
 }
+
+function mapStateToProps(state) {
+    console.log(state);
+    return {
+        auth: state.auth,
+    };
+}
+
+export default connect(mapStateToProps)(DashboardHeader);
