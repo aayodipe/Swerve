@@ -3,10 +3,6 @@ import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../styles/Post.css";
 import API from "../util/API";
-//create a function that called "userRegistration" which return the registration logics
-//export "User" regisration to the Post.js
-
-
 
 
 export default class Post extends Component {
@@ -16,11 +12,11 @@ export default class Post extends Component {
         super(props);
 
         this.state = {
-
             posts:[],
             location: "",
             description: "",
             image: ""
+
         };
     }
 
@@ -39,10 +35,20 @@ export default class Post extends Component {
             this.setState({ posts: res.data,                 
             location: "",
             description: "",
-            image: "" })}
+            image: null })}
           )
           .catch(err => console.log(err));
       };
+
+      //hanld Image File
+      fileSelectedHandler = (e)=>{
+        const { name, value } = e.target;
+          console.log()
+          this.setState({
+            image: e.target.files[0]
+          })
+      }
+      //Handle Change
       handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
@@ -50,7 +56,7 @@ export default class Post extends Component {
         });
       };
     
-
+    
     //Prevent login from clearing out
     handleFormSubmit = event => {
         event.preventDefault();
@@ -104,18 +110,19 @@ export default class Post extends Component {
                         />
                     </Form.Group>
                     <Form.Group controlId="image">
-                        <Form.Label className="normal-font">Image (optional)</Form.Label>
+                        <Form.Label className="normal-font">Image (Required)</Form.Label>
                         <Form.Control
                             value={this.state.image}
-                            onChange={this.handleInputChange}
+                            onChange={this.fileSelectedHandler}
                             type="file"
+                            name= "image"
                         />
                     </Form.Group>
 
                     <Button block className="custom-btn" onClick={this.handleFormSubmit}>
-                    <Link to={"/dashboard"} className="link">
+              
                         Submit
-                    </Link>
+                 
                     </Button>
                 </form>
             </div>
