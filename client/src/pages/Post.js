@@ -16,6 +16,7 @@ export default class Post extends Component {
         super(props);
 
         this.state = {
+
             posts:[],
             location: "",
             description: "",
@@ -107,7 +108,7 @@ export default class Post extends Component {
                         <Form.Control
                             value={this.state.image}
                             onChange={this.handleInputChange}
-                            type="image"
+                            type="file"
                         />
                     </Form.Group>
 
