@@ -12,7 +12,7 @@ router.post(
   [
     auth,
     [
-      check('text', 'Text is required')
+      check('location', 'Location is required')
         .not()
         .isEmpty()
     ]
@@ -44,9 +44,7 @@ router.post(
   }
 );
 
-// @route    GET api/posts
-// @desc     Get all posts
-// @access   Private
+
 router.get('/', auth, async (req, res) => {
   try {
     const posts = await Post.find().sort({ date: -1 });
@@ -57,9 +55,7 @@ router.get('/', auth, async (req, res) => {
   }
 });
 
-// @route    GET api/posts/:id
-// @desc     Get post by ID
-// @access   Private
+
 router.get('/:id', auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);

@@ -33,14 +33,7 @@ export default class DashboardPost extends Component {
         API.getAllPosts().then(
             (res) => {
                 console.log(res.data);
-                console.log("Description: " + res.data[0].description);
-                console.log("Description: " + res.data.description);
-                console.log("Location: " + res.data[0].location);
-                this.setState({ posts: res.data });
-                this.setState({ description: res.data[0].description });
-                this.setState({ location: res.data[0].location });
-                this.setState({ likes: res.data[0].likes });
-
+                this.setState({ posts: res.data });           
             }
         )
     }
