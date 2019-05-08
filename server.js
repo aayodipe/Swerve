@@ -4,11 +4,9 @@ const connectDB = require('./config/db')
 const db = require('./models');
 const PORT = process.env.PORT || 3001
 const app = express()
-
-//Define Routes
-const userRoute = require('./route/api/users')
-const postRoute = require('./route/api/posts')
-const authRoute = require('./route/api/auth')
+const userRoute= require('./routes/api/users')
+const  authRoute= require('./routes/api/auth')
+const postRoute = require('./routes/api/posts')
 
 // initialize middleware 
 app.use(express.urlencoded({ extended: true }));
