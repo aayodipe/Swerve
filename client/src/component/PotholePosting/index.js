@@ -9,7 +9,17 @@ function PotholePosting(props) {
     console.log(props);
     const { post } = props;
 
+    // const handleLikes = ()=>{
+      
+    //    }
+
+    // handleButtonClicked =(e)=>{
     
+    //   //Prevent Default
+    //   e.preventDefault
+    //     //called handleLikes
+    //   handleLikes()
+    //}
     return (
         <Card>
         <Card.Header><h1>{post.location}</h1></Card.Header>
