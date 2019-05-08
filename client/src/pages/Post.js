@@ -15,15 +15,12 @@ export default class Post extends Component {
             posts:[],
             location: "",
             description: "",
-            image: ""
+            image: null
 
         };
     }
 
-    //Function to allow data in the form fields
-    // validateForm() {
-    //     return this.state.description.length;;
-    // }
+ //On page upload
     componentDidMount() {
         this.loadAllPost();
       }
@@ -32,7 +29,8 @@ export default class Post extends Component {
         API.getAllPosts()
           .then(res =>{
             console.log(res)
-            this.setState({ posts: res.data,                 
+            this.setState({ 
+            posts: res.data,                 
             location: "",
             description: "",
             image: null })}
@@ -41,12 +39,13 @@ export default class Post extends Component {
       };
 
       //hanld Image File
-      fileSelectedHandler = (e)=>{
-        const { name, value } = e.target;
-          console.log()
+      fileSelectedHandler = (event)=>{
+    
+          console.log(event.target.files[0])
           this.setState({
-            image: e.target.files[0]
-          })
+            image: event.target.files[0]
+          }
+        )
       }
       //Handle Change
       handleInputChange = event => {
@@ -70,7 +69,6 @@ export default class Post extends Component {
                 res => {
                 this.loadAllPost()
                 console.log(res)
-
             })
             .catch(err => console.log(err));
         }

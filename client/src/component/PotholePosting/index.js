@@ -3,23 +3,16 @@ import Moment from 'react-moment';
 import { Button, Form, Card } from "react-bootstrap";
 import './style.css';
 // import image from '../../component/images/bad-potehole.jpg';
-
+const handlelikes = (user)=>{
+  
+  // return user.likes.length
+}
 
 function PotholePosting(props) {
     console.log(props);
     const { post } = props;
 
-    // const handleLikes = ()=>{
-      
-    //    }
-
-    // handleButtonClicked =(e)=>{
-    
-    //   //Prevent Default
-    //   e.preventDefault
-    //     //called handleLikes
-    //   handleLikes()
-    //}
+ 
     return (
         <Card>
         <Card.Header><h1>{post.location}</h1></Card.Header>
@@ -36,7 +29,7 @@ function PotholePosting(props) {
         <Button variant="primary" className ="float-right">View Discussion <span className='comment-count'>3</span></Button>
         <button type="button" className="btn btn-light ml-4">
               <i class="fas fa-thumbs-up"></i>
-              <span className ="ml-1">4</span>
+              <span className ="ml-1">5</span>
             </button>
             <button type="button" className="btn btn-light ml-4">
               <i class="fas fa-thumbs-down"></i>
