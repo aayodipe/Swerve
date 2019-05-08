@@ -2,7 +2,7 @@ import React from 'react';
 import Moment from 'react-moment';
 import { Button, Form, Card } from "react-bootstrap";
 import './style.css';
-import image from '../../component/images/bad-potehole.jpg';
+// import image from '../../component/images/bad-potehole.jpg';
 
 
 function PotholePosting(props) {
@@ -23,7 +23,7 @@ function PotholePosting(props) {
     return (
         <Card>
         <Card.Header><h1>{post.location}</h1></Card.Header>
-        <Card.Img variant="top" src={image}  onChange ={props.uploadFile}/>
+        <Card.Img variant="top" src={post.image}  onChange ={props.uploadFile}/>
         <Card.Body>
          <Card.Title className>{post.Title}</Card.Title>
           <Card.Text>
