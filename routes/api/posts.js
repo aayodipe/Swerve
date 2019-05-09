@@ -31,7 +31,8 @@ router.post(
         description:req.body.description,
         name: user.name,
         image: req.body.image,
-        user: req.user.id
+        user: req.user.id,
+        title:req.body.title
       });
 
       const post = await newPost.save();
@@ -45,7 +46,7 @@ router.post(
 );
 
 
-router.get('/', auth, async (req, res) => {
+router.get('/',  async (req, res) => {
   try {
     const posts = await Post.find().sort({ date: -1 });
     res.json(posts);
@@ -77,7 +78,7 @@ router.get('/:id', auth, async (req, res) => {
 // @route    DELETE api/posts/:id
 // @desc     Delete a post
 // @access   Private
-router.delete('/:id', auth, async (req, res) => {
+router.delete('/:id', auth,  async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
 

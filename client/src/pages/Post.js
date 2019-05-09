@@ -15,6 +15,7 @@ export default class Post extends Component {
             posts:[],
             location: "",
             description: "",
+            title:"",
             image: null
 
         };
@@ -33,6 +34,7 @@ export default class Post extends Component {
             posts: res.data,                 
             location: "",
             description: "",
+            title:"",
             image: null })}
           )
           .catch(err => console.log(err));
@@ -59,17 +61,16 @@ export default class Post extends Component {
     //Prevent login from clearing out
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.location) {
+        if (this.state.location && this.state.description) {
           API.savePost({
             location: this.state.location,
             description: this.state.description,
-            image: this.state.image
+            image: this.state.image,
+            title:this.state.title
           })
             .then(
                 res => {
-                // this.loadAllPost()
-                // console.log(res)
-                this.props.history.push('/dashboard');
+               this.props.history.push('/dashboard');
             })
             .catch(err => console.log(err));
         }
@@ -84,14 +85,29 @@ export default class Post extends Component {
                     <h1 className="headerFont">SWERVE</h1>
                 </div>
                 <form onSubmit={this.handleFormSubmit}>
+
+                <Form.Group controlId="title">
+                        <Form.Label className="normal-font"> 
+                        Headline </Form.Label>
+                        <Form.Control
+                            autoFocus
+                            type="text"
+                            name="title"
+                            value={this.state.title}
+                            onChange={this.handleInputChange}
+                            placeholder ="Example: Blood Sucking! Pothole"
+                            
+                        />
+                    </Form.Group>
                     <Form.Group controlId="location">
-                        <Form.Label className="normal-font"> Please enter the street name </Form.Label>
+                        <Form.Label className="normal-font"> Location </Form.Label>
                         <Form.Control
                             autoFocus
                             type="text"
                             name="location"
                             value={this.state.location}
                             onChange={this.handleInputChange}
+                            placeholder = "Kansas City, Kansas"
                             
                         />
                     </Form.Group>
