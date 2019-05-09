@@ -34,7 +34,20 @@ export default class DashboardPost extends Component {
           .then(res => this.UploadAll())
           .catch(err => console.log(err));
       };
+       //Delete Post
+       addLikes= id => {
+      API.addLikes(id)
+        .then(res => this.UploadAll())
+        .catch(err => console.log(err));
+    };
 
+
+    unLike= id => {
+   
+      API.unLike(id)
+        .then(res => this.UploadAll())
+        .catch(err => console.log(err));
+    };
 
 
     render() {
@@ -43,7 +56,13 @@ export default class DashboardPost extends Component {
                 <div className="post-top">
                     {this.state.posts.map(post => {
                     return <div style={{ marginBottom: 20 }}>
-                    <PotholePosting post={post} deletePost = {this.deletePost}/></div>
+                    <PotholePosting 
+                    post={post} 
+                    deletePost = {this.deletePost}
+                    addLikes = {this.addLikes} 
+                    unLike = {this.unLike}                    
+                    />
+                    </div>
                    
 
                     })}
