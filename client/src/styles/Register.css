@@ -53,6 +53,28 @@
   border-color: #9FCC3B;
 }
 
+.btn-container2 {
+  margin-left: 30px;
+}
+
 .normal-font {
   font-family: "Josephine Sans Regular";
+}
+
+.login-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sign-up {
+  font-family: "Josephine Sans Regular";
+  font-size: 17px;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.sign-up-link {
+  color: black;
 }

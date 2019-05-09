@@ -67,8 +67,9 @@ export default class Post extends Component {
           })
             .then(
                 res => {
-                this.loadAllPost()
-                console.log(res)
+                // this.loadAllPost()
+                // console.log(res)
+                this.props.history.push('/dashboard');
             })
             .catch(err => console.log(err));
         }
@@ -119,7 +120,7 @@ export default class Post extends Component {
 
                     <Button block className="custom-btn" onClick={this.handleFormSubmit}>
               
-                        Submit
+                      Submit
                  
                     </Button>
                 </form>

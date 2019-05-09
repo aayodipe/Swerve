@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import "../styles/header.css"
-import logo from "../styles/icon_logo.png";
+import "./header.css"
+import logo from "../../styles/icon_logo.png";
 
 class DashboardHeader extends Component {
 
@@ -18,11 +18,11 @@ class DashboardHeader extends Component {
                 {/* <div className="box">
                     <div className="header-waves"></div>
                 </div> */}
-                <div className="svg-container">
+                {/* <div className="svg-container">
                     <svg viewBox="0 0 3500 500">
                         <path d="M0,100 C150,200 350,0 500,100 C650,200 700,0 850,50 C1000,100 1150,200 1300,100 C1450,0 1600,100 1750,150 C1900,200 2050,0 2200,100 C2350,200 2500,100 2650,100 C2800,100 2950,200 3100,100 C3250,0 3400,200 3550,150 L3500,00 L0,0 Z" className="wave"></path>
                     </svg>
-                </div>
+                </div> */}
             </div>
         );
     }

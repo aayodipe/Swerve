@@ -52,6 +52,10 @@
   background-color: #9FCC3B;
 }
 
+.btn-container {
+  margin-left: 43px;
+}
+
 .custom-btn:hover {
   background-color: #9FCC3B;
   border-color: #9FCC3B;
@@ -59,12 +63,18 @@
 
 .normal-font {
   font-family: "Josephine Sans Regular";
-  font-size: 20px;
+  /* font-size: 500px; */
+}
+
+.login-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .sign-up {
   font-family: "Josephine Sans Regular";
-  font-size: 15px;
+  font-size: 17px;
   display: flex;
   justify-content: center;
   padding-top: 10px;

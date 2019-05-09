@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Josephine Sans Regular";
+    src: url(../../styles/josefin-sans/JosefinSans-Regular.ttf);
+  }
+
 .footer-container {
     background-color: #9FCC3B;
     position: fixed;
@@ -12,4 +17,5 @@
 
 .link-text {
     color: black;
+    font-family: "Josephine Sans Regular";
 }

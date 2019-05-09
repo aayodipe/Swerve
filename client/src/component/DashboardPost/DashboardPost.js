@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import "../styles/DashboardPost.css"
-import API from "../util/API";
-import Post from "../pages/Post"
-import PotholePosting from './PotholePosting';
-import { Button, Form } from "react-bootstrap";
+import "./DashboardPost.css"
+import API from "../../util/API";
+import Post from "../../pages/Post";
+import PotholePosting from '../PotholePosting';
+//import { Button, Form } from "react-bootstrap";
 
 
 export default class DashboardPost extends Component {
@@ -46,22 +46,6 @@ export default class DashboardPost extends Component {
                         return <div style={{ marginBottom: 20 }}><PotholePosting post={post} /></div>
 
                     })}
-
-                </div>
-                <div className="post-bottom">
-                    <Button as="input" type="button" value="Yes! Fix this please!" />
-                    <Button as="input" type="button" value="Additional Notes" />
-                    {/* <Modal show={this.state.show} handleClose={this.hideModal}>
-                        <p>Modal</p>
-                        <p>Data</p>
-                    </Modal>
-                    <button type="button" onClick={this.showModal}>
-                        Open
-        </button> */}
-
-
-
-
 
                 </div>
             </div>

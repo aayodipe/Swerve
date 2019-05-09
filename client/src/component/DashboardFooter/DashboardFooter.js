@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../styles/footer.css";
+import "./footer.css";
 
 export default class DashboardFooter extends Component {
 
