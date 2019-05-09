@@ -28,7 +28,14 @@ export default {
     return axios.get("/api/posts/" + id);
   },
     // Like Post url
-    getUserById: function(id) {
-      return axios.get("/api/posts/like" + id);
+    addLikes: function(id) {
+      return axios.put(`/api/posts/like/${id}`);
+      
     },
+  // Unlike Post url
+  unLike: function(id) {
+    return  axios.put(`/api/posts/unlike/${id}`)
+    
+  },
+  
 };

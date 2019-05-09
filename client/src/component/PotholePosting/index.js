@@ -22,15 +22,15 @@ function PotholePosting(props) {
         <footer className="blockquote-footer">
         Posted on <Moment format='YYYY/MM/DD'>{post.date}</Moment> { '  '}by <cite title="Source Title">{post.name}</cite>{ "    "}
         
-        <Button variant="primary" className ="float-right">View Discussion <span className='comment-count'>3</span></Button>
+        <Button variant="primary" className ="float-right">View Discussion <span className='comment-count'>{post.comments.length}</span></Button>
         <button type="button" className="btn btn-light ml-4"
-        onClick = {()=>props.add}>
+    onClick = {()=>props.addLikes(post._id)}>
               <i class="fas fa-thumbs-up"></i>
-              <span className ="ml-1">5</span>
+              <span className ="ml-1">{post.likes.length}</span>
             </button>
 
             <button type="button" className="btn btn-light ml-4"
-            onClick = {()=>props.removed(post.id)}>
+            onClick = {()=>props.unLike(post._id)}>
               <i class="fas fa-thumbs-down"></i>
             </button>
             {'  '}
