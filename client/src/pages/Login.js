@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../actions/auth';
+import "../styles/Login.css";
 
 
 const Login = ({ login, isAuthenticated }) => {
@@ -26,8 +27,12 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <Fragment>
-      <h1 className='large text-primary'>Sign In</h1>
-      <p className='lead'>
+      <div className="header">
+        <div className="headerWaves"></div>
+        <h1 className="headerFont">SWERVE</h1>
+      </div>
+      <div className="login-form normal-font">
+      <p className='normal-font'>
         <i className='fas fa-user' /> Sign Into Your Account
       </p>
       <form className='form' onSubmit={e => onSubmit(e)}>
@@ -51,10 +56,11 @@ const Login = ({ login, isAuthenticated }) => {
             minLength='6'
           />
         </div>
-        <input type='submit' className='btn btn-primary' value='Login' />
+        <input type='submit' className='btn btn-container btn-primary custom-btn normal-font' value='Login' />
       </form>
-      <p className='my-1'>
-        Don't have an account? <Link to='/register'>Sign Up</Link>
+      </div>
+      <p className='my-1 sign-up'>
+        Don't have an account? <Link to='/register' className="sign-up-link">Sign Up</Link>
       </p>
     </Fragment>
   );

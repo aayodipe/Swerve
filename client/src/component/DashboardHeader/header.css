@@ -1,11 +1,11 @@
 @font-face {
     font-family: "DK Garden Bed";
-    src: url(./DK\ Garden\ Bed.otf);
+    src: url(../../styles/DK\ Garden\ Bed.otf);
 }
 
 @font-face {
   font-family: "Josephine Sans Regular";
-  src: url(./josefin-sans/JosefinSans-Regular.ttf);
+  src: url(../../styles/josefin-sans/JosefinSans-Regular.ttf);
 }
 
 

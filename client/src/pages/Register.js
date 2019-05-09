@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { register } from '../actions/auth';
-import '../styles/Register.css'
+import "../styles/Register.css";
 
 
 const Register = ({ register, isAuthenticated }) => {
@@ -33,15 +33,19 @@ const Register = ({ register, isAuthenticated }) => {
 
   return (
     <Fragment>
-      <h1 className='large text-primary'>Sign Up</h1>
-      <p className='lead'>
+      <div className="header">
+        <div className="headerWaves"></div>
+        <h1 className="headerFont">SWERVE</h1>
+      </div>
+      <div className="login-form normal-font">
+      <p className='lead normal-font'>
         <i className='fas fa-user' /> Create Your Account
       </p>
       <form className='form' onSubmit={e => onSubmit(e)}>
         <div className='form-group'>
           <input
             type='text'
-            placeholder='Name'
+            placeholder='Userame'
             name='name'
             value={name}
             onChange={e => onChange(e)}
@@ -55,9 +59,9 @@ const Register = ({ register, isAuthenticated }) => {
             value={email}
             onChange={e => onChange(e)}
           />
-          <small className='form-text'>
+          {/* <small className='form-text'>
             We promised not to share your email...
-          </small>
+          </small> */}
         </div>
         <div className='form-group'>
           <input
@@ -77,10 +81,11 @@ const Register = ({ register, isAuthenticated }) => {
             onChange={e => onChange(e)}
           />
         </div>
-        <input type='submit' className='btn btn-primary' value='Register' />
+        <input type='submit' className='btn btn-container2 btn-primary custom-btn' value='Register' />
       </form>
-      <p className='my-1'>
-        Already have an account? <Link to='/login'>Sign In</Link>
+      </div>
+      <p className='my-1 sign-up'>
+        Already have an account? <Link to='/login'>Login</Link>
       </p>
     </Fragment>
   );
