@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../styles/Post.css";
+import axios from "axios";
 import API from "../util/API";
 
 
@@ -39,14 +40,11 @@ export default class Post extends Component {
       };
 
       //hanld Image File
-      fileSelectedHandler = (event)=>{
-    
-          console.log(event.target.files[0])
-          this.setState({
-            image: event.target.files[0]
-          }
-        )
-      }
+     fileSelectedHandler = event => {
+       this.setState({
+         image: event.target.files[0]
+       })
+     }
       //Handle Change
       handleInputChange = event => {
         const { name, value } = event.target;
@@ -60,17 +58,28 @@ export default class Post extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         if (this.state.location) {
-          API.savePost({
-            location: this.state.location,
-            description: this.state.description,
-            image: this.state.image
-          })
-            .then(
-                res => {
-                this.loadAllPost()
-                console.log(res)
+          API.uploadImage(this.state.image)
+            .then((uploadImageResponse) => {
+              const nameOfFile = uploadImageResponse.data.name;
+
+              API.savePost({
+                location: this.state.location,
+                description: this.state.description,
+                image: nameOfFile,
+              })
+                .then(
+                    res => {
+                    this.loadAllPost()
+                    console.log(res)
+                })
+                .catch(err => console.log(err));
+
+            }).catch((err) => {
+              console.error(err);
             })
-            .catch(err => console.log(err));
+
+
+
         }
       };
 
@@ -106,16 +115,11 @@ export default class Post extends Component {
                             value={this.state.description}
                             onChange={this.handleInputChange}
                         />
-                    </Form.Group>
-                    <Form.Group controlId="image">
-                        <Form.Label className="normal-font">Image (Required)</Form.Label>
-                        <Form.Control
-                            value={this.state.image}
-                            onChange={this.fileSelectedHandler}
-                            type="file"
-                            name= "image"
-                        />
-                    </Form.Group>
+                     </Form.Group>
+                    <div className="image">
+                    <input type="file" onChange={this.fileSelectedHandler}/>
+                    <button onClick={this.fileUploadHandler}>Upload</button>
+                    </div>
 
                     <Button block className="custom-btn" onClick={this.handleFormSubmit}>
               

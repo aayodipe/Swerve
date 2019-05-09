@@ -1,4 +1,5 @@
 import axios from "axios";
+import FormData from 'form-data';
 
 export default {
   // Gets all Traffic
@@ -31,4 +32,12 @@ export default {
     getUserById: function(id) {
       return axios.get("/api/posts/like" + id);
     },
+
+    uploadImage: function(image) {
+      const form = new FormData();
+      form.append('image', image);
+      return axios.post('/api/posts/image', form, {
+        headers: { 'content-type': 'multipart/form-data' }
+    })
+    }
 };
