@@ -3,10 +3,6 @@ import Moment from 'react-moment';
 import { Button, Form, Card } from "react-bootstrap";
 import './style.css';
 // import image from '../../component/images/bad-potehole.jpg';
-const handlelikes = (user)=>{
-  
-  // return user.likes.length
-}
 
 function PotholePosting(props) {
     console.log(props);
@@ -18,7 +14,7 @@ function PotholePosting(props) {
         <Card.Header><h1>{post.location}</h1></Card.Header>
         <Card.Img variant="top" src={post.image}  onChange ={props.uploadFile}/>
         <Card.Body>
-         <Card.Title className>{post.Title}</Card.Title>
+         <Card.Title className><h3 className = "text-info">{post.title}</h3></Card.Title>
           <Card.Text>
             <h3>{post.description}</h3>
           </Card.Text>
@@ -27,17 +23,24 @@ function PotholePosting(props) {
         Posted on <Moment format='YYYY/MM/DD'>{post.date}</Moment> { '  '}by <cite title="Source Title">{post.name}</cite>{ "    "}
         
         <Button variant="primary" className ="float-right">View Discussion <span className='comment-count'>3</span></Button>
-        <button type="button" className="btn btn-light ml-4">
+        <button type="button" className="btn btn-light ml-4"
+        onClick = {()=>props.add}>
               <i class="fas fa-thumbs-up"></i>
               <span className ="ml-1">5</span>
             </button>
-            <button type="button" className="btn btn-light ml-4">
+
+            <button type="button" className="btn btn-light ml-4"
+            onClick = {()=>props.removed(post.id)}>
               <i class="fas fa-thumbs-down"></i>
             </button>
             {'  '}
+
+
+
             <button      
             type="button"
             className="btn btn-danger ml-4"
+            onClick = {() => props.deletePost(post._id)}
           >
             <i class="fas fa-times"></i>
           </button>
