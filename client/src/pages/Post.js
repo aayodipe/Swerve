@@ -86,7 +86,7 @@ export default class Post extends Component {
                 </div>
                 <form onSubmit={this.handleFormSubmit}>
 
-                <Form.Group controlId="title">
+                {/* <Form.Group controlId="title">
                         <Form.Label className="normal-font"> 
                         Headline </Form.Label>
                         <Form.Control
@@ -98,16 +98,16 @@ export default class Post extends Component {
                             placeholder ="Example: Blood Sucking! Pothole"
                             
                         />
-                    </Form.Group>
+                    </Form.Group> */}
                     <Form.Group controlId="location">
-                        <Form.Label className="normal-font"> Location </Form.Label>
+                        <Form.Label className="normal-font"> Street Name </Form.Label>
                         <Form.Control
                             autoFocus
                             type="text"
                             name="location"
                             value={this.state.location}
                             onChange={this.handleInputChange}
-                            placeholder = "Kansas City, Kansas"
+                            placeholder = "Example: Ward Parkway"
                             
                         />
                     </Form.Group>

@@ -1,6 +1,57 @@
+@font-face {
+    font-family: "Josephine Sans Regular";
+    src: url(../../styles/josefin-sans/JosefinSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Josephine Sans Bold";
+    src: url(../../styles/josefin-sans/JosefinSans-Bold.ttf);
+}
+
 .card {
-    background-color: #ddd;
-    border-radius: 5px;
+    background-color: #E8E8E8;
+    border-radius: 17px;
     padding: 10px;
-    border-color: #ddd;
+    border-color: #E8E8E8;
+    margin-top: 20px;
+}
+
+.post-logo {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    height: 100px;
+}
+
+.location-name {
+    display: flex;
+    justify-content: center;
+    font-family: "Josephine Sans Bold";
+}
+
+.post-info {
+    display: flex;
+    justify-content: center;
+    font-family: "Josephine Sans Regular";
+}
+
+.footer-date {
+    font-family: "Josephine Sans Regular";
+    font-size: 16.5px;
+}
+
+.notes-button {
+    background-color: #9FCC3B;
+    border-color: #9FCC3B;
+    font-family: "Josephine Sans Regular";
+    border-radius: 10px;
+}
+
+.notes-button:hover {
+    background-color: #97B73D;
+    border-color: #97B73D;
+}
+
+.middle-buttons {
+    border-radius: 10px;
 }
