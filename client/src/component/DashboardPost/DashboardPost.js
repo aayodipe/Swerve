@@ -68,11 +68,6 @@ export default class DashboardPost extends Component {
                     })}
 
                 </div>
-                <div className="post-bottom">
-                    <Button as="input" type="button" value="Yes! Fix this please!" />
-                    <Button as="input" type="button" value="Additional Notes" />
-         
-                </div>
             </div>
         );
     }
