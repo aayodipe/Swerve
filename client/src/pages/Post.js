@@ -3,6 +3,8 @@ import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../styles/Post.css";
 import API from "../util/API";
+import Axios from "axios";
+import image from "../component//images/bad-potehole.jpg"
 
 
 export default class Post extends Component {
@@ -42,10 +44,10 @@ export default class Post extends Component {
 
       //hanld Image File
       fileSelectedHandler = (event)=>{
-    
+           
           console.log(event.target.files[0])
           this.setState({
-            image: event.target.files[0]
+            image: image
           }
         )
       }
@@ -61,7 +63,9 @@ export default class Post extends Component {
     //Prevent login from clearing out
     handleFormSubmit = event => {
         event.preventDefault();
+
         if (this.state.location && this.state.description) {
+        
           API.savePost({
             location: this.state.location,
             description: this.state.description,
@@ -84,7 +88,7 @@ export default class Post extends Component {
                     <div className="headerWaves"></div>
                     <h1 className="headerFont">SWERVE</h1>
                 </div>
-                <form onSubmit={this.handleFormSubmit}>
+                <form onSubmit={this.handleFormSubmit} enctype="multipart/form-data">
 
                 {/* <Form.Group controlId="title">
                         <Form.Label className="normal-font"> 
@@ -127,7 +131,7 @@ export default class Post extends Component {
                     <Form.Group controlId="image">
                         <Form.Label className="normal-font">Image (Required)</Form.Label>
                         <Form.Control
-                            value={this.state.image}
+                         
                             onChange={this.fileSelectedHandler}
                             type="file"
                             name= "image"
