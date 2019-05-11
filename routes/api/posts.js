@@ -1,36 +1,61 @@
+require('dotenv').config()
 const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator/check');
 const auth = require('../../middleware/auth');
-
 const Post = require('../../models/Post');
 const User = require('../../models/User');
 
+//Handle File Request
+const multer = require("multer");
+const cloudinary = require("cloudinary");
+const cloudinaryStorage = require("multer-storage-cloudinary");
+cloudinary.config({
+ cloud_name: process.env.CLOUD_NAME,
+ api_key: process.env.API_KEY,
+ api_secret: process.env.API_SECRET
+ });
+ const storage = cloudinaryStorage({
+ cloudinary: cloudinary,
+ folder: "swerve",
+ allowedFormats: ["jpg", "png"],
+ transformation: [{ width: 200, height: 200, crop: "limit" }]
+ });
+ const upload = multer({ storage: storage });
+
+
+router.post('/images', (req, res)=>{
+    console.log(req)
+})
 
 router.post(
   '/',
-  [
-    auth,
-    [
-      check('location', 'Location is required')
-        .not()
-        .isEmpty()
-    ]
-  ],
+  // [
+     auth,
+  //   // [
+  //   //   check('location', 'Location is required')
+  //   //     .not()
+  //   //     .isEmpty()
+  //   // ], 
+  // ]
+  upload.single('image'),
   async (req, res) => {
+    console.log(req.file)
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
 
     try {
+ 
       const user = await User.findById(req.user.id).select('-password');
-
+      
       const newPost = new Post({
         location: req.body.location,
         description:req.body.description,
         name: user.name,
         image: req.body.image,
+        // image_id:req.file.public_id,
         user: req.user.id,
         title:req.body.title
       });

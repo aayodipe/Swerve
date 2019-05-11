@@ -15,7 +15,7 @@ function PotholePosting(props) {
         <Card.Title className="post-header"><img src={logo} alt="user icon" className="post-logo" /> <h1 className="location-name">@{post.location}</h1></Card.Title>
         <Card.Img className="post-image" variant="top" src={post.image}  onChange ={props.uploadFile}/>
         <Card.Body>
-         {/* <Card.Title><h3 className= "text-info">{post.title}</h3></Card.Title> */}
+         <Card.Title><h3 className= "text-info">{post.title}</h3></Card.Title>
           <Card.Text>
             <h3 className="post-info">{post.description}</h3>
           </Card.Text>

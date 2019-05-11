@@ -36,6 +36,8 @@ export default {
   unLike: function(id) {
     return  axios.put(`/api/posts/unlike/${id}`)
     
-  },
+  }
+
+
   
 };
