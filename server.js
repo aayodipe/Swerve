@@ -16,6 +16,7 @@ app.use(express.json());
 app.use('/api/user', userRoute)
 app.use('/api/posts', postRoute)
 app.use('/api/auth', authRoute)
+
 // Connect to the Mongo DB
 connectDB()
 
