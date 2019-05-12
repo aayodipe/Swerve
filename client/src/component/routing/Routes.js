@@ -4,6 +4,7 @@ import Register from '../../pages/Register';
 import Login from '../../pages/Login';
 import Dashboard from '../../pages/Dashboard';
 import Post from '../../pages/Post';
+import Filter from "../../pages/Filter";
 import PrivateRoute from './PrivateRoute';
 
 const Routes = () => {
@@ -16,6 +17,7 @@ const Routes = () => {
         <Route exact path='/login' component={Login} />
         <Route exact path='/dashboard' component={Dashboard} />
         <PrivateRoute exact path='/post' component={Post} />
+        <PrivateRoute exact path='/filter' component={Filter} />
          </Switch>
     </section>
   );
