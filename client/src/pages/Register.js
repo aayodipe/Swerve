@@ -33,8 +33,10 @@ const Register = ({ register, isAuthenticated }) => {
 
   return (
     <Fragment>
-      <div className="header">
-        <div className="headerWaves"></div>
+      <div className="box">
+        <div class='wave -one'></div>
+        <div class='wave -two'></div>
+        <div class='wave -three'></div>
         <h1 className="headerFont">SWERVE</h1>
       </div>
       <div className="login-form normal-font">
