@@ -4,8 +4,9 @@ import Register from '../../pages/Register';
 import Login from '../../pages/Login';
 import Dashboard from '../../pages/Dashboard';
 import Post from '../../pages/Post';
-import Filter from "../../pages/Filter";
+// import Filter from "../../pages/Filter";
 import PrivateRoute from './PrivateRoute';
+import Filter from '../../component/filter/filter'
 
 const Routes = () => {
   return (

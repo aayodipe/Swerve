@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "../styles/Post.css";
+// import "../styles/Post.css";
 import API from "../util/API";
 import Axios from "axios";
-import image from "../component//images/bad-potehole.jpg"
+// import image from "../component//images/bad-potehole.jpg"
 
 
 export default class Post extends Component {
@@ -23,31 +23,12 @@ export default class Post extends Component {
         };
     }
 
- //On page upload
-    componentDidMount() {
-        this.loadAllPost();
-      }
-
-      loadAllPost = () => {
-        API.getAllPosts()
-          .then(res =>{
-            console.log(res)
-            this.setState({ 
-            posts: res.data,                 
-            location: "",
-            description: "",
-            title:"",
-            image: null })}
-          )
-          .catch(err => console.log(err));
-      };
-
       //hanld Image File
       fileSelectedHandler = (event)=>{
            
           console.log(event.target.files[0])
           this.setState({
-            image: image
+            image: event.target.files[0]
           }
         )
       }
@@ -65,13 +46,7 @@ export default class Post extends Component {
         event.preventDefault();
 
         if (this.state.location && this.state.description) {
-        
-          API.savePost({
-            location: this.state.location,
-            description: this.state.description,
-            image: this.state.image,
-            title:this.state.title
-          })
+            API.uploadImage(this.state.image,this.state.location, this.state.description)
             .then(
                 res => {
                this.props.history.push('/dashboard');
@@ -86,7 +61,7 @@ export default class Post extends Component {
             <div className="Register">
                 <div className="header">
                     <div className="headerWaves"></div>
-                    <h1 className="headerFont">SWERVE</h1>
+                    {/* <h1 className="headerFont">SWERVE</h1> */}
                 </div>
                 <form onSubmit={this.handleFormSubmit} enctype="multipart/form-data">
 
