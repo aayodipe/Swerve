@@ -2,21 +2,18 @@ import React, { Component } from "react";
 import { Button, Form } from "react-bootstrap";
 import "../styles/Filter.css";
 
-export default class Filter extends Component {
-
-    render() {
-        return (
-            <div className="filter-container">
-            <h1>This is the filter page</h1>
+const SearchForm  = ()=>{
+         <div className="filter-container">
+          
                 <form>
                     <Form.Group controlId="location">
-                        <Form.Label className="normal-font"> Street Name </Form.Label>
+                        <Form.Label className="normal-font"> Search by Street Name </Form.Label>
                         <Form.Control
                             autoFocus
                             type="text"
-                            name="location"
-                            // value={this.state.location}
-                            // onChange={this.handleInputChange}
+                            name="Searchfields"
+                            value={props.location}
+                            onChange={() => props.handleInputChange}
                             placeholder="Example: Ward Parkway"
 
                         />
@@ -36,14 +33,14 @@ export default class Filter extends Component {
                         label={`Most likes posts`}
                     />
 
-                    <Button block className="custom-btn" onClick={this.handleFormSubmit}>
+                    <Button block className="custom-btn" onClick={()=> props.handleFormSubmit}>
               
                       Submit
                  
                     </Button>
                 </form>
             </div>
-        );
-    }
-
+        
+    
 }
+export default SearchForm

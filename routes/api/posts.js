@@ -24,8 +24,9 @@ cloudinary.config({
  const upload = multer({ storage: storage });
 
 
-router.post('/images', (req, res)=>{
-    console.log(req)
+router.post('/images',  upload.single('image'),(req, res)=>{
+  console.log(req.file)
+    res.json(req.file)
 })
 
 router.post(
@@ -54,8 +55,8 @@ router.post(
         location: req.body.location,
         description:req.body.description,
         name: user.name,
-        image: req.body.image,
-        // image_id:req.file.public_id,
+        image: req.file.url,
+        image_id:req.file.public_id,
         user: req.user.id,
         title:req.body.title
       });
@@ -190,7 +191,7 @@ router.put('/unlike/:id', auth, async (req, res) => {
 router.post(
   '/comment/:id',
   [
-    auth,
+    
     [
       check('text', 'Text is required')
         .not()
