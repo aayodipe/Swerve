@@ -1,11 +1,12 @@
 @media all and (min-width: 480px) {
-    .Register {
-      padding: 60px 0;
+    .Post {
+      padding: 0px;
     }
   
-    .Register form {
+    .Post form {
       margin: 0 auto;
       max-width: 320px;
+      padding-top: 150px;
     }
   }
 
@@ -24,14 +25,15 @@
   font-family: "DK Garden Bed";
   transform: scale(1, 1.5);
   color: #003650;
+  top: 50px;
 }
 
-.header {
+/* .header {
   display: flex;
   justify-content: center;
   margin-top: 75px;
   margin-bottom: 100px;
-}
+} */
 
 .headerWaves {
   opacity: .5;
@@ -63,4 +65,10 @@
 .link {
     height: 100px;
     padding: 125px;
+}
+
+.top-container {
+  position: absolute;
+  top: 0px;
+  height: 500px;
 }

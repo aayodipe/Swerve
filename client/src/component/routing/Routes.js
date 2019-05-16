@@ -6,7 +6,7 @@ import Dashboard from '../../pages/Dashboard';
 import Post from '../../pages/Post';
 // import Filter from "../../pages/Filter";
 import PrivateRoute from './PrivateRoute';
-import Filter from '../../component/filter/filter'
+import Filter from '../../pages/FilterFrom';
 
 const Routes = () => {
   return (
