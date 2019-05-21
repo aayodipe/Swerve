@@ -3,7 +3,7 @@
 Swerve is a road condition reporter social media application. It allows users to report road conditions including potholes, traffic, construction, and more. The application allows real people to share their experiences with the road conditions to help others avoid them or to bring attention to issues that need to be fixed. 
 
 # Live Preview 
-You can view this project live [here](https://github.com/aayodipe/Swerve).
+You can view this project live [here](https://gentle-ridge-89097.herokuapp.com/).
 
 # Technologies
 * React
