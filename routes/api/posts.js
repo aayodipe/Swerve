@@ -24,21 +24,17 @@ cloudinary.config({
  const upload = multer({ storage: storage });
 
 
-router.post('/images',  upload.single('image'),(req, res)=>{
-  console.log(req.file)
-    res.json(req.file)
-})
-
 router.post(
   '/',
-  // [
+   [
      auth,
-  //   // [
-  //   //   check('location', 'Location is required')
-  //   //     .not()
-  //   //     .isEmpty()
-  //   // ], 
-  // ]
+    // [
+    //   check('location', 'Location is required')
+    //     .not()
+    //     .isEmpty()
+    // ]
+   
+  ],
   upload.single('image'),
   async (req, res) => {
     console.log(req.file)
