@@ -25,9 +25,7 @@ if(process.env.NODE_ENV === 'production'){
      app.use(express.static('client/build'));
 };
 
-app.get('*', (req, res) => {
-     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-   });
+
 // Connect to the Mongo DB
 mongoose.connect(process.env.Mongo_URL || 'mongodb+srv://aayodipe:Adeyemi2@cluster0-xcjje.mongodb.net/test?retryWrites=true', {useNewUrlParser: true}
    
@@ -35,4 +33,3 @@ mongoose.connect(process.env.Mongo_URL || 'mongodb+srv://aayodipe:Adeyemi2@clust
 app.listen(PORT, ()=>{
      console.log( `Server Listen to port ${PORT}`)
 })
-
